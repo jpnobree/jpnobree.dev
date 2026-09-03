@@ -43,7 +43,6 @@ export default function Navbar() {
         </ul>
 
         <div className="hidden lg:flex items-center gap-3">
-          <LanguageToggle />
           <ThemeToggle />
           <a
             href="#contato"
@@ -51,11 +50,12 @@ export default function Navbar() {
           >
             {t.nav.contactCta}
           </a>
+          <LanguageToggle />
         </div>
 
         <div className="flex lg:hidden items-center gap-3">
-          <LanguageToggle />
           <ThemeToggle />
+          <LanguageToggle />
           <button
             className="inline-flex items-center justify-center h-11 w-11 text-ink"
             aria-label={open ? t.nav.closeMenu : t.nav.openMenu}

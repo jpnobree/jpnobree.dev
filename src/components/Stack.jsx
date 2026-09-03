@@ -8,7 +8,7 @@ export default function Stack() {
   const s = t.stack
 
   return (
-    <section id="stack" className="py-24 md:py-32 border-t border-border">
+    <section id="stack" className="py-24 md:py-32">
       <div className="max-w-content mx-auto px-6 md:px-10">
         <div ref={ref} className="reveal">
           <p className="font-mono text-xs tracking-[0.2em] text-accent uppercase mb-3">{s.eyebrow}</p>

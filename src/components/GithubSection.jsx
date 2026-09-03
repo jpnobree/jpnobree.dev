@@ -14,7 +14,7 @@ export default function GithubSection() {
   ]
 
   return (
-    <section className="py-24 md:py-32 border-t border-border">
+    <section className="py-24 md:py-32">
       <div className="max-w-content mx-auto px-6 md:px-10">
         <div
           ref={ref}

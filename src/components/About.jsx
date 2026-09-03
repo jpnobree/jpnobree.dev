@@ -7,7 +7,7 @@ export default function About() {
   const a = t.about
 
   return (
-    <section id="sobre" className="py-24 md:py-32 border-t border-border">
+    <section id="sobre" className="py-24 md:py-32">
       <div className="max-w-content mx-auto px-6 md:px-10">
         <div ref={ref} className="reveal grid md:grid-cols-[minmax(0,320px)_1fr] gap-12 md:gap-20">
           <div>

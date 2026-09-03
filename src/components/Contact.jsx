@@ -29,7 +29,7 @@ export default function Contact() {
   ]
 
   return (
-    <section id="contato" className="py-24 md:py-32 border-t border-border">
+    <section id="contato" className="py-24 md:py-32">
       <div className="max-w-content mx-auto px-6 md:px-10">
         <div ref={ref} className="reveal text-center max-w-2xl mx-auto">
           <p className="font-mono text-xs tracking-[0.2em] text-accent uppercase mb-4">{c.eyebrow}</p>
