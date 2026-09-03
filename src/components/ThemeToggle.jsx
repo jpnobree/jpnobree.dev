@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Moon, Sun } from 'lucide-react'
+import { useLanguage } from '../i18n/LanguageContext'
 
 export default function ThemeToggle({ className = '' }) {
+  const { t } = useLanguage()
   const [isLight, setIsLight] = useState(false)
 
   useEffect(() => {
@@ -22,8 +24,8 @@ export default function ThemeToggle({ className = '' }) {
   return (
     <button
       onClick={toggleTheme}
-      aria-label={isLight ? 'Ativar modo escuro' : 'Ativar modo claro'}
-      className={`inline-flex items-center justify-center h-9 w-9 rounded-full border border-border text-muted hover:text-ink hover:border-accent transition-colors ${className}`}
+      aria-label={isLight ? t.theme.toggleDark : t.theme.toggleLight}
+      className={`inline-flex items-center justify-center h-11 w-11 rounded-full border border-border text-muted hover:text-ink hover:border-accent transition-colors ${className}`}
     >
       {isLight ? <Moon size={16} /> : <Sun size={16} />}
     </button>

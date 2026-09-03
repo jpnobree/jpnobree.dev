@@ -1,20 +1,23 @@
 import { experience } from '../data/experience'
 import { useReveal } from '../hooks/useReveal'
+import { useLanguage } from '../i18n/LanguageContext'
 
 export default function Experience() {
   const ref = useReveal()
+  const { t, lang } = useLanguage()
+  const e = t.experience
 
   return (
     <section id="experiencia" className="py-24 md:py-32 border-t border-border">
       <div className="max-w-content mx-auto px-6 md:px-10">
         <div ref={ref} className="reveal">
-          <p className="font-mono text-xs tracking-[0.2em] text-accent uppercase mb-3">Experiência</p>
+          <p className="font-mono text-xs tracking-[0.2em] text-accent uppercase mb-3">{e.eyebrow}</p>
           <h2 className="text-3xl md:text-4xl font-bold text-ink tracking-tight mb-12">
-            Onde trabalhei
+            {e.heading}
           </h2>
 
           <div className="space-y-0">
-            {experience.map((job) => (
+            {experience[lang].map((job) => (
               <div
                 key={job.company}
                 className="grid md:grid-cols-[180px_1fr] gap-4 md:gap-10 border-t border-border py-10 first:border-t-0 first:pt-0"

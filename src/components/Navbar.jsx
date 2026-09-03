@@ -1,17 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import ThemeToggle from './ThemeToggle'
-
-const links = [
-  { href: '#sobre', label: 'Sobre' },
-  { href: '#stack', label: 'Stack' },
-  { href: '#projetos', label: 'Projetos' },
-  { href: '#experiencia', label: 'Experiência' },
-  { href: '#formacao', label: 'Formação' },
-  { href: '#contato', label: 'Contato' },
-]
+import LanguageToggle from './LanguageToggle'
+import { useLanguage } from '../i18n/LanguageContext'
 
 export default function Navbar() {
+  const { t } = useLanguage()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
@@ -36,7 +30,7 @@ export default function Navbar() {
         </a>
 
         <ul className="hidden lg:flex items-center gap-7">
-          {links.map((l) => (
+          {t.nav.links.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
@@ -49,20 +43,22 @@ export default function Navbar() {
         </ul>
 
         <div className="hidden lg:flex items-center gap-3">
+          <LanguageToggle />
           <ThemeToggle />
           <a
             href="#contato"
             className="inline-flex text-sm font-medium px-4 py-2 rounded-full border border-border text-ink hover:border-accent hover:text-accent transition-colors"
           >
-            Vamos conversar
+            {t.nav.contactCta}
           </a>
         </div>
 
         <div className="flex lg:hidden items-center gap-3">
+          <LanguageToggle />
           <ThemeToggle />
           <button
-            className="text-ink"
-            aria-label={open ? 'Fechar menu' : 'Abrir menu'}
+            className="inline-flex items-center justify-center h-11 w-11 text-ink"
+            aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
             onClick={() => setOpen((v) => !v)}
           >
             {open ? <X size={22} /> : <Menu size={22} />}
@@ -73,7 +69,7 @@ export default function Navbar() {
       {open && (
         <div className="lg:hidden bg-bg border-b border-border px-6 pb-6 pt-2">
           <ul className="flex flex-col gap-1">
-            {links.map((l) => (
+            {t.nav.links.map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}

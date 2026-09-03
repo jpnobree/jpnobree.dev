@@ -1,21 +1,27 @@
 import { ArrowRight, Github, Linkedin, Mail, FileDown } from 'lucide-react'
 import { useReveal } from '../hooks/useReveal'
+import { useLanguage } from '../i18n/LanguageContext'
+import BackgroundPaths from './BackgroundPaths'
 
 export default function Hero() {
   const ref = useReveal()
+  const { t } = useLanguage()
+  const h = t.hero
 
   return (
     <section
       id="top"
-      className="relative min-h-[92vh] flex items-center pt-24 pb-16 overflow-hidden"
+      className="relative isolate min-h-[92vh] flex items-center pt-24 pb-16 overflow-hidden"
     >
+      <BackgroundPaths />
+
       {/* subtle background */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
           backgroundImage:
-            'radial-gradient(circle at 18% 20%, rgba(45,212,191,0.10), transparent 40%), radial-gradient(circle at 82% 0%, rgba(245,196,81,0.06), transparent 35%)',
+            'radial-gradient(circle at 18% 20%, rgb(var(--color-accent) / 0.10), transparent 40%), radial-gradient(circle at 82% 0%, rgb(var(--color-accent2) / 0.06), transparent 35%)',
         }}
       />
       <div
@@ -31,21 +37,21 @@ export default function Hero() {
 
       <div ref={ref} className="reveal max-w-content mx-auto px-6 md:px-10 w-full">
         <p className="font-mono text-xs md:text-sm tracking-[0.2em] text-accent uppercase mb-6">
-          Desenvolvedor Full Stack
+          {h.eyebrow}
+          <span className="text-muted"> · </span>
+          {h.eyebrowSecondary}
         </p>
 
         <h1 className="text-4xl md:text-6xl font-extrabold text-ink leading-[1.08] tracking-tight text-balance max-w-3xl">
-          João Pedro Nobre
+          {h.name}
         </h1>
 
         <p className="mt-6 text-xl md:text-2xl text-ink/90 font-medium leading-snug max-w-2xl text-balance">
-          Do banco de dados à interface: aplicações completas, pensadas para resolver problemas reais.
+          {h.headline}
         </p>
 
         <p className="mt-5 text-base md:text-lg text-muted leading-relaxed max-w-2xl">
-          Desenvolvedor Full Stack em formação em Análise e Desenvolvimento de Sistemas, com
-          experiência prática em Java, Spring Boot e React. Já levei um sistema de ponta a
-          ponta — de uma API REST autenticada até a interface que a consome.
+          {h.description}
         </p>
 
         <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -53,32 +59,45 @@ export default function Hero() {
             href="#projetos"
             className="inline-flex items-center gap-2 bg-accent text-bg font-semibold text-sm px-6 py-3 rounded-full hover:brightness-110 transition"
           >
-            Ver projetos
+            {h.ctaProjects}
             <ArrowRight size={16} />
           </a>
           <a
             href="#contato"
             className="inline-flex items-center gap-2 border border-border text-ink text-sm font-medium px-6 py-3 rounded-full hover:border-accent hover:text-accent transition"
           >
-            Entre em contato
+            {h.ctaContact}
           </a>
-          <a
-            href="/resume.pdf"
-            download
-            className="inline-flex items-center gap-2 text-muted text-sm font-medium px-4 py-3 hover:text-ink transition"
-          >
+          <div className="inline-flex items-center gap-2 text-muted text-sm font-medium px-4 py-3">
             <FileDown size={16} />
-            Baixar currículo
-          </a>
+            <span>{h.resumeLabel}</span>
+            <a
+              href="/curriculo.pdf"
+              download="Joao_Pedro_Nobre_Curriculo_PT.pdf"
+              className="text-ink/80 hover:text-accent underline-offset-4 hover:underline transition"
+            >
+              PT
+            </a>
+            <span className="text-border" aria-hidden="true">
+              /
+            </span>
+            <a
+              href="/resume.pdf"
+              download="Joao_Pedro_Nobre_Resume_EN.pdf"
+              className="text-ink/80 hover:text-accent underline-offset-4 hover:underline transition"
+            >
+              EN
+            </a>
+          </div>
         </div>
 
-        <div className="mt-10 flex items-center gap-5">
+        <div className="mt-10 flex items-center gap-1 -ml-3">
           <a
             href="https://github.com/jpnobree"
             target="_blank"
             rel="noreferrer noopener"
-            aria-label="GitHub"
-            className="text-muted hover:text-ink transition"
+            aria-label={h.ariaGithub}
+            className="inline-flex items-center justify-center h-11 w-11 text-muted hover:text-ink transition"
           >
             <Github size={20} />
           </a>
@@ -86,15 +105,15 @@ export default function Hero() {
             href="https://linkedin.com/in/jpnobree"
             target="_blank"
             rel="noreferrer noopener"
-            aria-label="LinkedIn"
-            className="text-muted hover:text-ink transition"
+            aria-label={h.ariaLinkedin}
+            className="inline-flex items-center justify-center h-11 w-11 text-muted hover:text-ink transition"
           >
             <Linkedin size={20} />
           </a>
           <a
             href="mailto:jpnobreee@gmail.com"
-            aria-label="E-mail"
-            className="text-muted hover:text-ink transition"
+            aria-label={h.ariaEmail}
+            className="inline-flex items-center justify-center h-11 w-11 text-muted hover:text-ink transition"
           >
             <Mail size={20} />
           </a>

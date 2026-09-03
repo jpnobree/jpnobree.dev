@@ -1,14 +1,17 @@
 import { ArrowUpRight, Github, GitFork, BookMarked } from 'lucide-react'
 import { useReveal } from '../hooks/useReveal'
-
-const stats = [
-  { icon: BookMarked, label: 'Repositórios públicos', value: '8' },
-  { icon: GitFork, label: 'Linguagem principal', value: 'Java' },
-  { icon: Github, label: 'Atividade', value: 'Commits semanais' },
-]
+import { useLanguage } from '../i18n/LanguageContext'
 
 export default function GithubSection() {
   const ref = useReveal()
+  const { t } = useLanguage()
+  const g = t.github
+
+  const stats = [
+    { icon: BookMarked, label: g.stats.reposLabel, value: '8' },
+    { icon: GitFork, label: g.stats.langLabel, value: 'Java' },
+    { icon: Github, label: g.stats.activityLabel, value: g.stats.activityValue },
+  ]
 
   return (
     <section className="py-24 md:py-32 border-t border-border">
@@ -18,15 +21,11 @@ export default function GithubSection() {
           className="reveal rounded-3xl border border-border bg-surface p-10 md:p-14 flex flex-col md:flex-row md:items-center justify-between gap-10"
         >
           <div className="max-w-xl">
-            <p className="font-mono text-xs tracking-[0.2em] text-accent uppercase mb-3">GitHub</p>
+            <p className="font-mono text-xs tracking-[0.2em] text-accent uppercase mb-3">{g.eyebrow}</p>
             <h2 className="text-2xl md:text-3xl font-bold text-ink tracking-tight mb-4">
-              O código por trás de cada projeto está público
+              {g.heading}
             </h2>
-            <p className="text-muted leading-relaxed mb-8">
-              Backend em Java e Spring Boot, front-end em React, projetos de estudo em Java puro.
-              Histórico de commits, testes automatizados e READMEs técnicos — sem enfeite, só o
-              trabalho real.
-            </p>
+            <p className="text-muted leading-relaxed mb-8">{g.description}</p>
             <a
               href="https://github.com/jpnobree"
               target="_blank"

@@ -1,26 +1,26 @@
 export const stackCategories = [
   {
-    label: 'Front-end',
+    key: 'frontend',
     items: ['React', 'JavaScript (ES6+)', 'React Router', 'HTML5', 'CSS3', 'Tailwind CSS'],
   },
   {
-    label: 'Back-end',
+    key: 'backend',
     items: ['Java 17', 'Spring Boot', 'Spring Security', 'JWT', 'Spring Data JPA / Hibernate'],
   },
   {
-    label: 'Banco de dados',
+    key: 'database',
     items: ['PostgreSQL'],
   },
   {
-    label: 'Testes',
+    key: 'testing',
     items: ['JUnit 5', 'Mockito', 'MockMvc', 'Vitest', 'Testing Library'],
   },
   {
-    label: 'Ferramentas',
+    key: 'tools',
     items: ['Git', 'GitHub', 'Maven', 'Postman', 'IntelliJ IDEA'],
   },
   {
-    label: 'Mobile',
+    key: 'mobile',
     items: ['React Native'],
   },
 ]

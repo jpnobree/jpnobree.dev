@@ -1,8 +1,11 @@
 import { ArrowUpRight, Github } from 'lucide-react'
 import { useReveal } from '../hooks/useReveal'
+import { useLanguage } from '../i18n/LanguageContext'
 
 export default function FeaturedProject({ project, index }) {
   const ref = useReveal()
+  const { t } = useLanguage()
+  const labels = t.projects.labels
   const repoLinks = Object.entries(project.links).filter(([, url]) => url)
 
   return (
@@ -23,11 +26,11 @@ export default function FeaturedProject({ project, index }) {
 
         <div className="space-y-5 text-muted leading-relaxed">
           <div>
-            <p className="text-xs font-mono uppercase tracking-wide text-faint mb-1.5">Problema</p>
+            <p className="text-xs font-mono uppercase tracking-wide text-faint mb-1.5">{labels.problem}</p>
             <p>{project.problem}</p>
           </div>
           <div>
-            <p className="text-xs font-mono uppercase tracking-wide text-faint mb-1.5">Solução</p>
+            <p className="text-xs font-mono uppercase tracking-wide text-faint mb-1.5">{labels.solution}</p>
             <p>{project.solution}</p>
           </div>
         </div>
@@ -51,7 +54,7 @@ export default function FeaturedProject({ project, index }) {
               className="inline-flex items-center gap-1.5 text-sm font-medium text-ink border border-border rounded-full px-4 py-2 hover:border-accent hover:text-accent transition-colors"
             >
               <Github size={15} />
-              {key === 'backend' ? 'Repositório — Backend' : key === 'frontend' ? 'Repositório — Frontend' : key === 'repo' ? 'Ver repositório' : 'Demo'}
+              {labels[key] ?? labels.demo}
               <ArrowUpRight size={13} />
             </a>
           ))}
