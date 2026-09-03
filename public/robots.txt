@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jpnobre.dev/sitemap.xml
+Sitemap: https://jpnobree.dev/sitemap.xml
