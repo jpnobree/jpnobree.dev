@@ -14,7 +14,7 @@ import { LanguageProvider } from './i18n/LanguageContext'
 export default function App() {
   return (
     <LanguageProvider>
-      <div className="bg-bg text-ink min-h-screen">
+      <div id="app-shell" className="bg-bg text-ink min-h-screen">
         <Navbar />
         <main>
           <Hero />

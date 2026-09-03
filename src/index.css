@@ -47,6 +47,16 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Graph-paper texture — light mode only. An SVG line pattern renders crisp at
+   1px (a CSS linear-gradient hairline anti-aliases into near-invisibility);
+   this is a plain grid tile, drawn to order, not lifted from any reference.
+   Applied to #app-shell, not body: the app's own opaque bg-bg wrapper paints
+   on top of body and was hiding it completely. */
+:root.light #app-shell {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Cpath d='M32 0H0V32' fill='none' stroke='rgba(16,18,22,0.08)' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 32px 32px;
+}
+
 /* Smooth crossfade between light and dark theme (mirrors the reference site's
    own approach: a plain color/background-color transition, no fancy API). */
 *,
