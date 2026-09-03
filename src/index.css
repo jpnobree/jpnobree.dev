@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: 10 11 13;
+  --color-surface: 17 19 24;
+  --color-surface2: 23 26 33;
+  --color-border: 34 38 47;
+  --color-ink: 233 234 238;
+  --color-muted: 154 160 172;
+  --color-faint: 92 98 110;
+  --color-accent: 45 212 191;
+  --color-accent2: 245 196 81;
+
+  color-scheme: dark;
+}
+
+:root.light {
+  --color-bg: 255 255 255;
+  --color-surface: 247 248 249;
+  --color-surface2: 240 241 243;
+  --color-border: 226 228 232;
+  --color-ink: 16 18 22;
+  --color-muted: 90 96 107;
+  --color-faint: 140 146 156;
+  --color-accent: 13 122 111;
+  --color-accent2: 161 98 7;
+
+  color-scheme: light;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  background: rgb(var(--color-bg));
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.25s ease;
+}
+
+::selection {
+  background: rgb(var(--color-accent) / 0.25);
+  color: rgb(var(--color-ink));
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(var(--color-bg));
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--color-border));
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--color-accent) / 0.4);
+}
+
+/* focus visibility for a11y */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid rgb(var(--color-accent));
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+}
+.reveal.is-visible {
+  animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.text-balance {
+  text-wrap: balance;
+}

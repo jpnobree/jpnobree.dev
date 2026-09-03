@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#0a0b0d"/>
+  <defs>
+    <radialGradient id="g1" cx="20%" cy="15%" r="60%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g1)"/>
+  <text x="80" y="240" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" letter-spacing="4" fill="#2dd4bf">DESENVOLVEDOR FULL STACK</text>
+  <text x="78" y="330" font-family="Inter, system-ui, sans-serif" font-size="72" font-weight="800" fill="#e9eaee">João Pedro Nobre</text>
+  <text x="80" y="390" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="500" fill="#9aa0ac">Java · Spring Boot · React · PostgreSQL</text>
+  <text x="80" y="560" font-family="ui-monospace, monospace" font-size="20" fill="#5c626e">github.com/jpnobree</text>
+</svg>
