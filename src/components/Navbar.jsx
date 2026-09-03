@@ -24,16 +24,15 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${
-        scrolled ? 'bg-bg border-b border-border' : 'bg-transparent border-b border-transparent'
-      }`}
+      className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${scrolled ? 'bg-bg border-b border-border' : 'bg-transparent border-b border-transparent'
+        }`}
     >
       <nav className="max-w-content mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
         <a
           href="#top"
           className="font-mono text-sm font-medium text-ink tracking-tight"
         >
-          jp<span className="text-accent">.</span>nobre
+          jpnobree<span className="text-accent">.</span>dev
         </a>
 
         <ul className="hidden lg:flex items-center gap-7">
